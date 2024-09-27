@@ -1,0 +1,47 @@
+<%= link_to products_path, class: 'btn btn-outline-secondary my-3' do %>
+  <i class="bi bi-arrow-left"></i>
+<% end %>
+<div class="row">
+  <div class="col-12">
+    <div class="card p-3">
+      <% if @cart.present? %>
+        <div class="d-flex">
+          <div class="flex-grow-1">
+            <h5>Item</h5>
+          </div>
+          <div>
+            <h5>Price</h5>
+          </div>
+        </div>
+        <% @cart.cart_items.each do |item| %>
+          <div class="d-flex border-top pt-2">
+            <div class="flex-grow-1">
+              <p class="mb-1"><%= item.product.name%></p>
+              <p>X <%= item.quantity %></p>
+            </div>
+            <div>
+              <p><%= number_to_currency(item.total)%></p>
+            </div>
+            </div>
+        <% end %>
+        <div class="d-flex border-top pt-2 flex-column align-items-end">
+          <div class="d-flex" >
+            <div>
+              <p><b>Total</b> </p>
+            </div>
+            <div class="ms-2">
+              <p><%= number_to_currency(@cart.cart_items.sum(:total)) %> </p>
+            </div>
+          </div>
+          <div>
+            <%= link_to "Checkout", checkout_path, class: "btn btn-success"%>
+          </div>
+        </div>
+          
+      <% else %>
+        <h3>Cart is empty.</h3>
+        <%= link_to "Go to products page", root_path %>
+      <% end %>
+    </div>
+  </div>
+</div>

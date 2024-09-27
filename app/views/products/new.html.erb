@@ -1,0 +1,64 @@
+<!-- app/views/products/new.html.erb -->
+<%= link_to products_path, class: 'btn btn-outline-secondary my-3' do %>
+  <i class="bi bi-arrow-left"></i>
+<% end %>
+
+<div class="row">
+ <div class="col-12">
+    <div class="card p-3 ">
+
+<h1>New Product</h1>
+
+<%= form_with model: @product, local: true do |form| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <ul>
+        <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <form>
+  <div class="form-group" style="margin-bottom: 20px;">
+    <label for="name" style="margin-bottom: 10px; display: block;">Name</label>
+    <input type="text" class="form-control" placeholder="Enter Name of Product" style="padding: 10px; width: 100%;">
+</div>
+
+<div class="form-group" style="margin-bottom: 20px;">
+    <label for="description" style="margin-bottom: 10px; display: block;">Description</label>
+    <input type="text" class="form-control" placeholder="Description" style="padding: 10px; width: 100%;">
+</div>
+
+<div class="form-group" style="margin-bottom: 20px;">
+    <label for="brand" style="margin-bottom: 10px; display: block;">Brand</label>
+    <input type="text" class="form-control" placeholder="Brand Name" style="padding: 10px; width: 100%;">
+</div>
+
+<div class="form-group" style="margin-bottom: 20px;">
+    <label for="category" style="margin-bottom: 10px; display: block;">Category</label>
+    <input type="text" class="form-control" placeholder="Category" style="padding: 10px; width: 100%;">
+</div>
+
+<div class="form-group" style="margin-bottom: 20px;">
+    <label for="Price" style="margin-bottom: 10px; display: block;">Price</label>
+    <input type="number" class="form-control" placeholder="Product price" style="padding: 10px; width: 100%;" step="0.01">
+</div>
+
+
+
+ 
+  
+<div class="actions">
+    <%= form.submit "Create Product"%>
+  </div>
+  
+</form>
+ 
+<% end %>
+
+</div>
+</div>
+</div>

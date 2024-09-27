@@ -1,0 +1,13 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore the master key for decrypting credentials and more.
+/config/master.key
+
+# Ignore other unimportant files
+/log/*
+/tmp/*
+/db/*.sqlite3
+/node_modules
+/public/assets
+
